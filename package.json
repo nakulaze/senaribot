@@ -1,0 +1,39 @@
+{
+  "name": "senaribot",
+  "version": "1.1.0",
+  "description": "Self-hosted personal automation daemon over WhatsApp Multi-Device",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && tsc-alias -p tsconfig.json && node -e \"require('fs').copyFileSync('src/database/schema.sql','dist/database/schema.sql')\"",
+    "dev": "node --loader tsx/esm src/index.ts",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test tests/ai.test.ts tests/ai-command.test.ts tests/ai-errors.test.ts tests/backup.test.ts tests/summarizer-pure.test.ts tests/summarizer-core.test.ts tests/summarizer-command.test.ts tests/summarizer-serializer.test.ts tests/summarizer-extractor.test.ts tests/summarizer-integration.test.ts tests/dispatcher.test.ts tests/repo-whitelist.test.ts tests/traffic-shaper.test.ts tests/todo-pure.test.ts tests/todo-command.test.ts tests/reminder-delivery.test.ts tests/habit-period.test.ts tests/habit-command.test.ts tests/habit-integration.test.ts tests/websearch.test.ts tests/weather.test.ts tests/currency.test.ts tests/calendar.test.ts tests/github.test.ts tests/youtube.test.ts"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.5.0",
+    "better-sqlite3": "^12.11.1",
+    "chrono-node": "^2.7.0",
+    "dotenv": "^18.0.9",
+    "fluent-ffmpeg": "^2.1.3",
+    "pino": "^8.17.0",
+    "pino-pretty": "^10.3.0",
+    "sharp": "0.35.5",
+    "unpdf": "^2.1.0",
+    "youtube-transcript": "^1.3.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/fluent-ffmpeg": "^2.1.4",
+    "@types/node": "^20.10.0",
+    "tsc-alias": "^1.9.9",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0"
+  }
+}
