@@ -85,7 +85,7 @@ Install Node.js 20+ from https://nodejs.org/ and FFmpeg from https://ffmpeg.org/
 1. Clone or download senaribot.
 
 ```
-git clone https://github.com/your-org/senaribot.git
+git clone https://github.com/nakulaze/senaribot.git
 cd senaribot
 ```
 
